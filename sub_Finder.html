@@ -1,0 +1,120 @@
+<!-- ***** BEGIN: REMOVE "HTTP:WWW.BELK.COM" BEFORE LOADING INTO BLUE -->
+<script type="text/javascript" src="http://www.belk.com/media/javascript/libs/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="http://www.belk.com/media/javascript/libs/jquery-ui-1.8.7.custom.min.js"></script>
+<script type="text/javascript" src="http://www.belk.com/media/javascript/libs/jquery.tools.min.js"></script>
+<script type="text/javascript" src="http://www.belk.com/media/javascript/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="http://www.belk.com/media/javascript/jquery.equals.0.1.js"></script>
+<!-- ***** END: REMOVE "HTTP:WWW.BELK.COM" BEFORE LOADING INTO BLUE -->
+
+<style>
+
+.finder                                 { width: 770px; height: 100px; display: block; background: url(http://s7d4.scene7.com/is/image/Belk/LGF_Weekend_bg?&$P_CONTENT$); position: relative; overflow: hidden; font-family: Arial; 
+                                          font-size: 12px; }
+.finder.open                            { height: 320px }
+.finder h3                              { font-size: 20px; color: white; margin: 10px 0 0 30px; }
+.finder p                               { color: #5f5f5f; margin: 2px 10px 24px 16px; }
+.finder #options div                    { width: 150px; height: 180px; float: left; display: block; margin: 15px 0 0 0; cursor: pointer; text-align: left; text-decoration: none; }
+.finder  a:link, a:visited, a:hover, a:active
+                                        { text-decoration: none }
+.finder .openArrow                      { position: absolute; bottom: 0; right: 0; width: 122px; height: 30px; background: url(http://s7d4.scene7.com/is/image/Belk/finder_open_button?&$P_CONTENT$); cursor: pointer; z-index: 99999; }
+.finder.open .openArrow                 { background: url(http://s7d4.scene7.com/is/image/Belk/finder_close_button?&$P_CONTENT$) }
+.guide a:link, a:visited, a:hover, a:active
+                                        { color: #0072B9; text-decoration: none; }
+.guide a:link                           { font-weight: bold }
+.finder #options .Weekend p             { font-size: 12px; text-align: left; margin-left: 16px; }
+.finder #options .Whirlwind p           { font-size: 12px; text-align: left; margin-left: 16px; }
+.finder #options .Dream p               { font-size: 12px; text-align: left; margin-left: 16px; text-decoration: none; }
+.finder #options .OffPath p             { font-size: 12px; text-align: left; margin-left: 16px; }
+.finder #options .Business p            { font-size: 12px; text-align: left; margin-left: 16px; }
+.finder #options .Weekend               { background: url(http://s7d4.scene7.com/is/image/Belk/LGF_Weekend_select?&$P_CONTENT$) no-repeat; padding-top: 109px; font-size: 12px; text-align: left; }
+.finder #options .Whirlwind             { background: url(http://s7d4.scene7.com/is/image/Belk/LGF_Whirlwind?&$P_CONTENT$) no-repeat }
+.finder #options .Dream                 { background: url(http://s7d4.scene7.com/is/image/Belk/LGF_Dream?&$P_CONTENT$) no-repeat; margin-left: 10px; }
+.finder #options .OffPath               { background: url(http://s7d4.scene7.com/is/image/Belk/LGF_OffPath?&$P_CONTENT$) no-repeat }
+.finder #options .Business              { background: url(http://s7d4.scene7.com/is/image/Belk/LGF_Business?&$P_CONTENT$) no-repeat }
+/* <--------^Update the above links above as new Selected image changes-----------> */
+
+.finder #options                        { margin-top: 92px }  
+
+ /*=======================CSS to Adjust the postions of the titles======================================================================= */
+.finder #options .Weekend .title        { text-align: left; color: #0072B9; font-weight: bold; font-size: 13px; margin-left: 16px; margin-bottom: 0px; }
+.finder #options .Whirlwind .title      { text-align: left; color: #0072B9; font-weight: bold; font-size: 13px; margin-top: 107px; margin-left: 16px; margin-bottom: 0px; }
+.finder #options .Dream .title          { text-align: left; color: #0072B9; font-weight: bold; font-size: 13px; margin-top: 107px; margin-left: 16px; margin-bottom: 0px; }
+.finder #options .OffPath .title        { text-align: left; color: #0072B9; font-weight: bold; font-size: 13px; margin-top: 107px; margin-left: 16px; margin-bottom: 0px; }
+.finder #options .Business .title       { text-align: left; color: #0072B9; font-weight: bold; font-size: 13px; margin-top: 107px; margin-left: 16px; margin-bottom: 0px; }
+/* =======================CSS to Adjust the postions of the titles End===================== ================================================== 
+
+/* ============================The code below  wraps the Download link ========================================================= */
+.finder .guide                          { position: absolute; display: block; float: left; text-align: left; font-size: 13px; font-weight: bold; margin-top: 35px; top: 257px; bottom: 30px; left: 16px; }
+
+</style>
+<script>
+// Preload images >>>also add image links for slider here
+$(document).ready(function() {
+var imgs = [], imgUrls =
+[
+"http://s7d4.scene7.com/is/image/Belk/LGF_default_bg?&$P_CONTENT$",
+"http://s7d4.scene7.com/is/image/Belk/LGF_Weekend?&$P_CONTENT$",
+"http://s7d4.scene7.com/is/image/Belk/LGF_Whirlwind?&$P_CONTENT$",
+"http://s7d4.scene7.com/is/image/Belk/LGF_Dream?&$P_CONTENT$",
+"http://s7d4.scene7.com/is/image/Belk/LGF_OffPath?&$P_CONTENT$",
+"http://s7d4.scene7.com/is/image/Belk/LGF_Business?&$P_CONTENT$",
+"http://s7d4.scene7.com/is/image/Belk/finder_open_button?&$P_CONTENT$",
+"http://s7d4.scene7.com/is/image/Belk/finder_close_button?&$P_CONTENT$",
+];
+
+var imgs = []
+
+for(url in imgUrls) {
+i = new Image();
+i.src = imgUrls[url];
+imgs.push(i);
+}
+
+});
+
+</script>
+<script>
+$(document).ready(function() {
+  $('.finder #options div').css("opacity", .5);
+  $('.finder #options div.selected').css("opacity", 1);
+  $(".openArrow").click(function() {
+      if ($(this).parent().hasClass("open")) {
+        $(".finder").stop().animate({height: "109px"}, 500, "easeInOutQuad",  function() { // HEIGHT OF FINDER BANNER ON COLLAPSE "109PX" 500 REPRESENTS ANIMATION SPEED
+            $(this).removeClass("open");
+            $(this).removeClass("open");
+            }); 
+      } else {
+        $(".finder").stop().animate({height: "320px"}, 500, "easeInOutQuad",  function() { // HEIGHT OF BANNER ON OPEN "320PX"  500 REPRESENTS ANIMATION SPEED
+            $(this).addClass("open");
+            });
+      }
+  });
+  $('.finder #options div').hover(function() {
+    if (!$(this).hasClass("selected")) {
+      $(this).stop().animate({ "opacity": 1 });
+    }
+  },function() {
+    if (!$(this).hasClass("selected")) {
+      $(this).stop().animate({ "opacity": .5 });
+    }
+  });
+});
+</script>
+<div class="finder open">
+    <div class="openArrow " alt=" Learn more" title=" learn more"></div>
+    <div id="options">
+       <a href="/AST/Main/Wedding_Primary/Luggage/Collections.jsp?cm_sp=Nav-_-BannerTop-_-3_WeddingRegistry_LuggageFinder_DreamVacation" alt="Dream Vacation-Collection Luggage" title="Dream Vacation-Collection Luggage"><div class="Dream"> <h4 class="title">Dream<br/>Vacation</h4><p>Collection Luggage</p></div></a>
+
+       <a href="/AST/Main/Wedding_Primary/Luggage/Hardside.jsp?cm_sp=Nav-_-BannerTop-_-2_WeddingRegistry_LuggageFinder_OfftheBeatenPath"alt="Off the Beaten Path-Hardside Bags" title="Off the Beaten Path-Hardside Bags"><div class="OffPath"><h4 class="title">Off the<br/>Beaten Path</h4><p>Hardside Bags</p></div></a>
+
+       <a href="/AST/Main/Wedding_Primary/Luggage/Spinners.jsp?cm_sp=Nav-_-BannerTop-_-3_WeddingRegistry_LuggageFinder_Whirlwind" alt="Whirlwind Tour-Spinners" title="Whirlwind Tour-Spinners"><div class="Whirlwind"> <h4 class="title">Whirlwind<br>Tour</h4><p>Spinners</p></div></a>
+      <a href="/AST/Main/Wedding_Primary/Luggage/ExecutiveBags.jsp?cm_sp=Nav-_-BannerTop-_-4_WeddingRegistry_LuggageFinder_Business" alt=" Business Trip-Executive Bags" title=" Business Trip-Executive Bags"><div class="Business"><h4 class="title">Business <br/>Trip</h4><p>Executive Bags</p></div></a>
+        <a href="/AST/Main/Wedding_Primary/Luggage/Backpack_Duffles.jsp?cm_sp=Nav-_-BannerTop-_-5_WeddingRegistry_LuggageFinder_Backpacks" alt="Weekend Escape-Duffels & Backpacks" title="Weekend Escape-Duffels & Backpacks"><div class="Weekend selected" ><h4 class="title">Weekend<br />Escape</h4><p>Backpacks & Duffels</p></div></a>
+    </div>
+     <div class="guide">Interested in learning more?<a href="/media/pdf/BuyingGuides2012/buying-guide-luggage.pdf" alt="Download our Luggage Buying Guide" title="Download our Luggage Buying Guide" target="_blank"> Download our Luggage Buying Guide</a></div>
+</div>
+
+
+
+
+
